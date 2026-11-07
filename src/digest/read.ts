@@ -22,7 +22,7 @@ function isStatus(value: unknown): value is RunStatus {
   return typeof value === 'string' && STATUSES.includes(value);
 }
 
-function parseLine(text: string): RunLine | null {
+export function parseLine(text: string): RunLine | null {
   let value: unknown;
   try {
     value = JSON.parse(text);
@@ -43,7 +43,7 @@ function parseLine(text: string): RunLine | null {
   return { at, ms, job, status, owner, error: error ?? null };
 }
 
-function readLog(path: string): string | null {
+export function readLog(path: string): string | null {
   try {
     return readFileSync(path, 'utf8');
   } catch (err) {

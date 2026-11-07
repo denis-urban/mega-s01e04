@@ -12,6 +12,8 @@ export type DigestRow = {
   lastAt: string;
 };
 
+export type StatusCounts = Record<RunStatus, number>;
+
 export type Night =
   | { found: false }
   | { found: true; rows: DigestRow[]; badLines: number };
